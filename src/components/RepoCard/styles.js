@@ -56,7 +56,7 @@ export const Bottom = styled.div`
     flex-shrink: 0;
 
     &.other {
-      background: var(--typescript)
+      background: var(--gray-light)
     }
 
     &.javascript {

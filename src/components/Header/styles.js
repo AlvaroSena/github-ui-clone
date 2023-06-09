@@ -45,6 +45,7 @@ export const SearchIcon = styled(FaSearch)`
 export const TextField = styled.input`
   font-size: 14px;
   color: var(--primary);
+  width: 100%;
 `
 
 

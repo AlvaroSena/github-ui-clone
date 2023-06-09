@@ -14,7 +14,7 @@ export function RepoCard({
   return (
     <Container>
       <Top>
-        <a href={`/${login}/${repo_name}`}>{repo_name}</a>
+        <a href={`https://github.com/${login}/${repo_name}`}>{repo_name}</a>
         {/* <p className="repo-description">
           {description}
         </p> */}
@@ -24,7 +24,7 @@ export function RepoCard({
         <ul>
           <li>
             <div className={`language ${languageClass}`}></div>
-            <span>{language}</span>
+            <span>{language ? language : 'Other'}</span>
           </li>
           <li>
             <StarIcon />

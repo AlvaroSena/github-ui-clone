@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom'
 import { Container, Content } from './styles'
 import { ProfileData } from '../../components/ProfileData'
 import { Repos } from '../../components/Repos'
+import { SearchModal } from '../../components/SearchModal'
+import { Helmet } from 'react-helmet'
 
-export function Profile() {
-  const { login } = useParams()
+export function Profile({ isOpenSearchModal, openSearchModal, closeSearchModal }) {
+  const { login = 'alvarosena' } = useParams()
   const [data, setData] = useState()
-
-  console.log(data)
 
   useEffect(() => {
     Promise.all([
@@ -17,7 +17,7 @@ export function Profile() {
     ]).then(async (responses) => {
       const [userResponse, reposResponse] = responses
 
-      if (userResponse.status === 404) {
+      if (userResponse.status !== 200) {
         setData({ error: 'User not found!' })
         return
       }
@@ -35,8 +35,25 @@ export function Profile() {
     })
   }, [login])
 
+  if (data?.error) {
+    return <h1>{data.error}</h1>
+  }
+
+  if (!data?.user || !data?.repos) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <Container>
+      <Helmet>
+        <title>{`${data.user.login} (${data.user.name})`}</title>
+      </Helmet>
+      <SearchModal 
+        isOpen={isOpenSearchModal}
+        openModal={openSearchModal}
+        closeModal={closeSearchModal}
+      />
+
       <Content>
         <ProfileData 
           login={data.user.login}

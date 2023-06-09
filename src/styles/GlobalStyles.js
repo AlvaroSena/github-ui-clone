@@ -52,6 +52,5 @@ export default createGlobalStyle`
     --typescript: #2b7489;
     --python: #3572A5; 
     --html: #e34c26;
-    --other-language: #8257e5;
   }
 `
