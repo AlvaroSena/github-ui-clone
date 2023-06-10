@@ -23,6 +23,7 @@ export function ProfileData({
   linkedin,
   email, 
   blog,
+  bio,
 }) {
   return (
     <Container>
@@ -36,6 +37,8 @@ export function ProfileData({
             </div>
           </Column>
         </Flex>
+
+        <div className="bio">{bio}</div>
 
         <List>
           <li>

@@ -9,6 +9,15 @@ export const Container = styled.div``
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+
+  .bio {
+    color: var(--black);
+    margin: 1rem 0;
+    
+    @media (min-width: 768px) {
+      max-width: 296px;
+    }
+  }
 `
 
 export const Flex = styled.div`

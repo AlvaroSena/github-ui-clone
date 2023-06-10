@@ -35,6 +35,10 @@ export const SearchBar = styled.div`
   align-items: center;
   width: 100%;
   padding: 0 1rem;
+  
+  @media (min-width: 768px) {
+    max-width: 324px;
+  }  
 `
 export const SearchIcon = styled(FaSearch)`
   fill: var(--gray-light);
@@ -48,4 +52,4 @@ export const TextField = styled.input`
   width: 100%;
 `
 
-
+export const Link = styled.a``

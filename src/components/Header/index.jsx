@@ -6,13 +6,16 @@ import {
   SearchBar,
   SearchIcon,
   TextField,
+  Link,
 } from './styles'
 
 export function Header({ openSearchModal }) {
   return (
     <Container>
       <Content>
-        <GithubLogo />
+        <Link href="/">
+          <GithubLogo />
+        </Link>
         <SearchBar>
           <SearchIcon />
           <TextField 

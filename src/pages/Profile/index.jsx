@@ -3,10 +3,9 @@ import { useParams } from 'react-router-dom'
 import { Container, Content } from './styles'
 import { ProfileData } from '../../components/ProfileData'
 import { Repos } from '../../components/Repos'
-import { SearchModal } from '../../components/SearchModal'
 import { Helmet } from 'react-helmet'
 
-export function Profile({ isOpenSearchModal, openSearchModal, closeSearchModal }) {
+export function Profile() {
   const { login = 'alvarosena' } = useParams()
   const [data, setData] = useState()
 
@@ -48,11 +47,6 @@ export function Profile({ isOpenSearchModal, openSearchModal, closeSearchModal }
       <Helmet>
         <title>{`${data.user.login} (${data.user.name})`}</title>
       </Helmet>
-      <SearchModal 
-        isOpen={isOpenSearchModal}
-        openModal={openSearchModal}
-        closeModal={closeSearchModal}
-      />
 
       <Content>
         <ProfileData 
@@ -65,6 +59,7 @@ export function Profile({ isOpenSearchModal, openSearchModal, closeSearchModal }
           location={data.user.location}
           email={data.user.email}
           blog={data.user.blog}
+          bio={data.user.bio}
         />
         <Repos 
           repos={data.repos}
